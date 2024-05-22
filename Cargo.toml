@@ -1,0 +1,52 @@
+[package]
+name = "clip-embedding-wasm"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+crate-type = ["cdylib"]
+
+[features]
+default = ["console_error_panic_hook"]
+
+[dependencies]
+anyhow = "1.0.86"
+candle-core = "0.5.1"
+candle-nn = "0.5.1"
+candle-transformers = "0.5.1"
+console_error_panic_hook = { version = "0.1.6", optional = true }
+getrandom = { version = "0.2", features = ["js"] }
+image = "0.25.1"
+tokenizers = { default-features = false, features = ["unstable_wasm"], version = "0.19.1" }
+wasm-bindgen = "0.2.92"
+wasm-bindgen-futures = "0.4.42"
+js-sys = "0.3.64"
+serde-wasm-bindgen = "0.6.5"
+
+[dependencies.web-sys]
+version = "0.3.4"
+features = [
+  'console',
+  'Document',
+  'HtmlElement',
+  'HtmlInputElement',
+  'MessageEvent',
+  'Window',
+  'Worker',
+  'WorkerGlobalScope',
+  'DedicatedWorkerGlobalScope',
+  'CacheStorage',
+  'Cache',
+  'Blob',
+  'Document',
+  'Element',
+  'Node',
+  'Request',
+  'RequestCache',
+  'RequestInit',
+  'RequestMode',
+  'Response',
+  'Performance',
+]
