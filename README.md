@@ -11,6 +11,7 @@ Proof-of-concept towards loading CLIP model into the browser and getting an embe
 - Downloads CLIP model from HuggingFace into your browser cache
 - CLIP image embedding for uploaded images
 - Runs the model locally in your browser
+- Download embedding as `.safetensors` file
 
 ## Build
 
