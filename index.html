@@ -1,22 +1,48 @@
 <!doctype html>
-<html lang="en">
+<html lang="en-US">
   <head>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <title>CLIP embedding</title>
+    <meta name="description" content="" />
     <link rel="stylesheet" href="main.css" />
   </head>
-
   <body>
-    <div id="wrapper">
-      <h1>Main Thread/Wasm Web Worker Interaction</h1>
-
-      <input type="text" id="inputNumber" />
-
-      <div id="resultField"></div>
+    <div id="jumbo" class="jumbo__intro">
+      <form class="box box__open" id="dropbox" enctype="multipart/form-data">
+        <div style="text-align: center">
+          <div class="box__intro">
+            <h1>CLIP Embedding</h1>
+            <p>CLIP embedding for image and text features</p>
+          </div>
+					<div id="model_loading">Model loading… please wait</div>
+          <div id="box_upload" class="box__input hidden">
+            <input
+              class="box__file"
+              type="file"
+              name="files[]"
+              id="file"
+              data-multiple-caption="{count} files selected"
+              accept="image/*"
+							disabled
+              multiple
+            />
+            <label for="file"
+              ><strong>Choose a file</strong
+              ><span class="box__dragndrop"> or drag it here</span>.</label
+            >
+          </div>
+        </div>
+      </form>
     </div>
-
-    <!-- Make `wasm_bindgen` available for `index.js` -->
+    <div id="results"></div>
+    <div id="file_con"></div>
     <script src="./pkg/clip_embedding_wasm.js"></script>
-    <!-- Note that there is no `type="module"` in the script tag -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>

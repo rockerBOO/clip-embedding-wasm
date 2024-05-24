@@ -267,6 +267,7 @@ dependencies = [
  "getrandom",
  "image",
  "js-sys",
+ "safetensors",
  "serde-wasm-bindgen",
  "tokenizers",
  "wasm-bindgen",
