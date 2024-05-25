@@ -68,11 +68,12 @@ h1 {
   display: grid;
   justify-items: center;
   align-items: center;
-  background-image: url("/assets/img/logo.png");
+  background-image: url("/logo6.png");
   background-repeat: no-repeat;
-  background-blend-mode: overlay;
+  background-blend-mode: soft-light;
   background-position: center;
-  background-size: 50vw;
+	/* background-size: 90vh 90vw; */
+  background-size: 100vw;
   transition: outline 240ms ease-in;
 }
 
