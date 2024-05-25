@@ -9,18 +9,9 @@
     <title>CLIP embedding</title>
     <meta name="description" content="" />
     <link rel="stylesheet" href="main.css" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon-32.png"
-    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="shortcut icon" href="/favicon-32.ico" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/apple-touch-icon.png"
-    />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   </head>
   <body>
     <div id="jumbo" class="jumbo__intro">
@@ -30,7 +21,15 @@
             <h1>CLIP Embedding</h1>
             <p>CLIP embedding for image and text features</p>
           </div>
-					<div id="model_loading">Model loading… please wait</div>
+          <div id="model_load_dialog">
+            <button id="model_load">
+              Download and load the CLIP model (600 MB) into your browser
+            </button>
+            <div class="note" style="padding: 1em"><em>Download model in browser cache</em></div>
+          </div>
+          <div id="model_loading" class="hidden">
+            Model downloading (600 MB) and loading… please wait
+          </div>
           <div id="box_upload" class="box__input hidden">
             <input
               class="box__file"
@@ -39,7 +38,7 @@
               id="file"
               data-multiple-caption="{count} files selected"
               accept="image/*"
-							disabled
+              disabled
               multiple
             />
             <label for="file"
@@ -53,8 +52,20 @@
     <div id="results"></div>
     <div id="file_con"></div>
     <script src="./pkg/clip_embedding_wasm.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.development.min.js"></script> -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.development.min.js"></script> -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"
+      integrity="sha512-QVs8Lo43F9lSuBykadDb0oSXDL/BbZ588urWVCRwSIoewQv/Ewg1f84mK3U790bZ0FfhFa1YSQUmIhG+pIRKeg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"
+      integrity="sha512-6a1107rTlA4gYpgHAqbwLAtxmWipBdJFcq8y5S/aTge3Bp+VAklABm2LO+Kg51vOWR9JMZq1Ovjl5tpluNpTeQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <script src="./main.js"></script>
   </body>
 </html>

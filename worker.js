@@ -39,22 +39,23 @@ async function init_wasm_in_worker() {
 
   // // Create a new object of the `NumberEval` struct.
   // var num_eval = NumberEval.new();
-
-  const modelLocation = new ModelLocation(
-    "https://huggingface.co/openai/clip-vit-base-patch32/resolve/refs%2fpr%2f15",
-    "model.safetensors",
-  );
-
-  self.postMessage({ t: "loadingModel" });
-
-  const clipModel = await new ClipModel(modelLocation);
-
-  console.log("clip model", clipModel);
-
-  self.postMessage({ t: "modelLoaded" });
+  let clipModel;
 
   self.onmessage = async (event) => {
     switch (event.data.t) {
+      case "loadModel":
+        const modelLocation = new ModelLocation(
+          "https://huggingface.co/openai/clip-vit-base-patch32/resolve/refs%2fpr%2f15",
+          "model.safetensors",
+        );
+
+        self.postMessage({ t: "loadingModel" });
+
+        clipModel = await new ClipModel(modelLocation);
+
+        console.log("clip model", clipModel);
+
+        self.postMessage({ t: "modelLoaded" });
       case "fileUpload":
         console.log("file", event.data.file);
         const file = await readFile(event.data.file);

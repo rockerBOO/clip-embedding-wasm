@@ -112,6 +112,15 @@ async function run_wasm() {
         }
       });
   });
+
+  document.querySelector("#model_load").addEventListener("click", (e) => {
+    e.preventDefault();
+    dropbox.querySelector("#model_load_dialog").classList.add("hidden");
+    dropbox.querySelector("#model_loading").classList.remove("hidden");
+    dropbox.querySelector("#model_loading").classList.add("visible");
+
+    worker.postMessage({ t: "loadModel" });
+  });
 }
 
 function Embedding({ embedding, file }) {
